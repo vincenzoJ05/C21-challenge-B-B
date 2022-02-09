@@ -9,14 +9,14 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.php">Home</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">Huisjes</a>
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">Huisjes</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <?php
                         //haal alle huisjes op uit de database, gebruik hiervoor de functie getData() geef aan getData de juiste argumenten mee
                         //1. de sql statement ("SELECT * FROM `cottages`") en 2 of je alle rijen (fetchAll) of maar een rij als resultaat terug wil zien.
                         //In dit geval is het al juist voor je ingevuld
                         $tblCottages = getData("SELECT * FROM `cottages`", "fetchAll");
-
+                
                         //maak hieronder een forach loop om door de array $tblCottages te lopen
                         foreach($tblCottages as $cottage){
                         ?>

@@ -5,7 +5,7 @@ include 'includes/functions.php';
 
 //de header van je HTML pagina
 include "header.php"; 
-//filter.php
+include "includes/filter.php";
 ?>
 
 <section>
@@ -19,7 +19,7 @@ include "header.php";
                             
             if($filter == false){
                 //alle huisjes moeten getoond worden er wordt niet gefiltert, vul de variabele $sql met de juiste query
-                $sql = "";
+                $sql = "SELECT * FROM `cottages`";
             }
             else{
                 //alleen huisjes met de aangevinkte faciliteiten moeten getoond worden
@@ -43,46 +43,52 @@ include "header.php";
             } //einde else ($filter == true)
 
                 //de echo hieronder gebruiken als je niet zeker weet wat de $sql statement is die wordt uitgevoerd
-                //echo $sql;
+                // echo $sql;
 
                 //de variabele $tblCottages vullen met de data uit de database (array) hiervoor de functie getData gebruiken uit functions.php
                 //$tblCottages uncommenten als functions.php af is en is ge-include op regel 4 en de sql statement op regel 19 klopt
-                //$tblCottages = getData($sql, "fetchAll");
+                $tblCottages = getData($sql, "fetchAll");
             ?>
 
             <?php
             //if statement afmaken als filter werkt...
-            //if(count($tblCottages) == 0){ ?>
+            if(count($tblCottages) == 0){ 
+                // echo $selection;
+            ?>
             
+                
                 <!-- als er geen resultaat getoond kan worden omdat er 0 resultaat is op het filter de volgende melding tonen -->
                 <!-- de variabele $selection in filter.php gebruiken om te laten zien waar op gefiltert is -->
                 <div class="col-12">
                     <div class="alert alert-warning" role="alert">Helaas er zijn geen huisjes met de volgende selectie: <?php echo $selection; ?> </div>
                 </div>
-            <?php //} //einde if
-            //else { //count($tblCottages) > 0 ?>
+    
+            <?php }////einde if
+            else {count($tblCottages) > 0 ?>
             <!-- als er wel resultaat is of als er niet gefiltert is de huisjes laten zien -->
-                <?php // start loop door array met cottages uit db gegevens ?>
+                <?php
+                 foreach($tblCottages as $cottage){//start loop door array met cottages uit db gegevens
+                 ?>
                 <div class="col-12 col-md-4 mb-4 d-flex align-self-stretch">
                     <div class="card">
-                        <img class="card-img-top" src="cottage_img" alt="cottage_name"><!-- maak image en naam dynamisch -->
+                        <img class="card-img-top" src="img/<?php echo $cottage['cottage_img']?>" alt="cottage_name"><!-- maak image en naam dynamisch -->
                             <div class="card-body">
-                                <h5 class="card-title">cottage naam</h5> <!-- maak naam dynamisch -->
-                                <p class="card-text">cottage korte omschrijving</p> <!-- maak omschrijving dynamisch -->
+                                <h5 class="card-title"><?php echo $cottage['cottage_name']?></h5> <!-- maak naam dynamisch -->
+                                <p class="card-text"><?php echo $cottage['cottage_excerpt']?></p> <!-- maak omschrijving dynamisch -->
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">cottage prijs per nacht voor volwassenen</li><!-- maak prijs volwassenen dynamisch -->
-                                    <li class="list-group-item">cottage prijs per nacht voor kinderen</li><!-- maak prijs kinderen dynamisch -->
+                                    <li class="list-group-item"><?php echo "€ ".$cottage['cottage_price_a']." per nacht voor volwassenen"?></li><!-- maak prijs volwassenen dynamisch -->
+                                    <li class="list-group-item"><?php echo "€ ".$cottage['cottage_price_c']." per nacht voor kinderen"?></li><!-- maak prijs kinderen dynamisch -->
                                 </ul>
-                                <a href="huisjes.php?cottageID=<?php echo "cottage id hier"; ?>" class="btn btn-secondary mt-2">Lees meer...</a><!-- maak href dynamisch -->
+                                <a href="huisjes.php?cottageID=<?php echo $cottage['cottage_id']; ?>" class="btn btn-secondary mt-2">Lees meer...</a><!-- maak href dynamisch -->
                             </div>
                         </div>
                     </div>
-                <?php //einde loop door array cottages uit db gegevens ?>
-            <?php //} //einde if, else count ?>
+                <?php }//einde loop door array cottages uit db gegevens ?>
+            <?php } //einde if, else count ?>
         </div>
     </div>
 </section>
 
 <?php 
-//include footer
+include 'footer.php';
 ?>
