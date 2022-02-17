@@ -14,7 +14,7 @@ include "includes/filter.php";
             <?php
                 //de klant wil dat er een filter optie komt dus alvast de voorbereiding hier neerzetten de filter is geprogrammeerd in filter.php
 
-                //haal alle huisjes op, check of er gefilterd wordt hiervoor wordt de variabele $filter gebruikt
+                //haal alle huisjes op, check of er gefilterd wordt hiervoor wordt de variabele filter gebruikt
                 //vul variabele $tblCottages met de data uit de database
                             
             if($filter == false){
@@ -71,13 +71,13 @@ include "includes/filter.php";
                  ?>
                 <div class="col-12 col-md-4 mb-4 d-flex align-self-stretch">
                     <div class="card">
-                        <img class="card-img-top" src="img/<?php echo $cottage['cottage_img']?>" alt="cottage_name"><!-- maak image en naam dynamisch -->
+                        <img class="card-img-top" src="img/<?php echo $cottage['cottage_img'];?>" alt="cottage_name"><!-- maak image en naam dynamisch -->
                             <div class="card-body">
-                                <h5 class="card-title"><?php echo $cottage['cottage_name']?></h5> <!-- maak naam dynamisch -->
-                                <p class="card-text"><?php echo $cottage['cottage_excerpt']?></p> <!-- maak omschrijving dynamisch -->
+                                <h5 class="card-title"><?php echo $cottage['cottage_name'];?></h5> <!-- maak naam dynamisch -->
+                                <p class="card-text"><?php echo $cottage['cottage_excerpt'];?></p> <!-- maak omschrijving dynamisch -->
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item"><?php echo "€ ".$cottage['cottage_price_a']." per nacht voor volwassenen"?></li><!-- maak prijs volwassenen dynamisch -->
-                                    <li class="list-group-item"><?php echo "€ ".$cottage['cottage_price_c']." per nacht voor kinderen"?></li><!-- maak prijs kinderen dynamisch -->
+                                    <li class="list-group-item"><?php echo "€ ".$cottage['cottage_price_a']." per nacht voor volwassenen";?></li><!-- maak prijs volwassenen dynamisch -->
+                                    <li class="list-group-item"><?php echo "€ ".$cottage['cottage_price_c']." per nacht voor kinderen";?></li><!-- maak prijs kinderen dynamisch -->
                                 </ul>
                                 <a href="huisjes.php?cottageID=<?php echo $cottage['cottage_id']; ?>" class="btn btn-secondary mt-2">Lees meer...</a><!-- maak href dynamisch -->
                             </div>
