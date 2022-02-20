@@ -12,7 +12,6 @@ if(isset($_GET["cottageID"]) && $_GET["cottageID"] > 0){
 $sql = "SELECT * FROM `cottages` WHERE cottage_id = $cottageID ";
 
 $cottage = getData($sql, 'fetch');
-print_r($cottage);
 ?>
 
 <!-- section-1 -->
@@ -23,10 +22,10 @@ print_r($cottage);
             <div class="col">
                 <div id="carouselExampleControls" class="carousel slide pointer-event" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item">
+                    <div class="carousel-item active">
                     <img src="img/<?php echo $cottage['cottage_img'];?>" class="d-block w-100" alt="<?php echo $cottage['cottage_img'];?>"><!--src en alt dynamisch maken -->
                     </div>
-                    <div class="carousel-item active">
+                    <div class="carousel-item">
                     <img src="img/<?php echo $cottage['cottage_img2'];?>" class="d-block w-100" alt="<?php echo $cottage['cottage_img2'];?>"><!--src en alt dynamisch maken -->
                     </div>
                     <div class="carousel-item">
@@ -60,26 +59,26 @@ print_r($cottage);
     <div class="container mt-4 bg-light">
         <div class="row  px-4 py-4">
             <div class="col">
-            faciliteiten (aparte file in includes)
+            <?php include 'facilities.php';?>
             </div>
 
         
             <div class="col">
                 <h4>Prijzen (per persoon per nacht)</h4>
                     <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Volwassenen: <?php echo "€ ".$cottage['cottage_price_a'];?> </li>
-                            <li class="list-group-item">Kinderen: <?php echo "€ ".$cottage['cottage_price_c'];?></li>
+                            <li class="list-group-item">Volwassenen: <?php echo "€ ".number_format((float)$cottage['cottage_price_a'], 2, '.', '');?> </li>
+                            <li class="list-group-item">Kinderen: <?php echo "€ ".number_format((float)$cottage['cottage_price_c'], 2, '.', '');;?></li>
                     </ul>
             </div>
-
             <div class="col">
-                additions (aparte file in includes)
+            <?php include 'additions.php';?>
             </div>
         </div>
     </div>
 </section>
-
 <?php 
+include 'calculateprice.php';
+
 include 'footer.php';
 ?>
 

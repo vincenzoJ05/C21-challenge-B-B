@@ -32,9 +32,7 @@ function FormatNumber($num){
 
     //syntax = number_format(number,decimals,decimalpoint,separator)
 
-    //maak de functie af
-    //return ....
-
+   return number_format((float)$num, 2, '.', '');
 }
 
 ?>
