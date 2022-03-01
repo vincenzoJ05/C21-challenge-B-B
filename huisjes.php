@@ -66,8 +66,8 @@ $cottage = getData($sql, 'fetch');
             <div class="col">
                 <h4>Prijzen (per persoon per nacht)</h4>
                     <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Volwassenen: <?php echo "€ ".number_format((float)$cottage['cottage_price_a'], 2, '.', '');?> </li>
-                            <li class="list-group-item">Kinderen: <?php echo "€ ".number_format((float)$cottage['cottage_price_c'], 2, '.', '');;?></li>
+                            <li class="list-group-item">Volwassenen: <?php echo "€ ".formatNumber($cottage['cottage_price_a']);?> </li>
+                            <li class="list-group-item">Kinderen: <?php echo "€ ".formatNumber($cottage['cottage_price_c']);;?></li>
                     </ul>
             </div>
             <div class="col">

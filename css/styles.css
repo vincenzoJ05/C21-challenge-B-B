@@ -2,3 +2,11 @@
 voor de styles wordt gebruik gemaakt van bootstrap deze wordt extern geladen in index.php.
 meer informatie over bootstrap vind je hier https://getbootstrap.com/docs/5.1/getting-started/introduction/ 
 */
+
+
+/* de navbar bij de onderkant rond gemaakt i.p.v blokkerig */
+.navbar{
+    border-bottom: 10px;
+    border-radius: 0 0 10px 10px;
+}
+

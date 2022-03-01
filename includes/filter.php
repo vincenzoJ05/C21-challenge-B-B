@@ -63,6 +63,7 @@
                                     <input class="form-check-input" type="checkbox" value="<?php echo $row["facility_id"];?>" id="<?php echo $row["facility_id"];?>" name="formFacilities[]" <?php if(in_array($row["facility_id"], $arrFrmFilter)){echo "checked";}?>>
                                     <label class="form-check-label" for="<?php echo $row["facility_id"];?>"><?php echo $row["facility_name"];?></label>
                                 </div>
+                                
 
                             <?php } //einde van de loop ?>
                             
