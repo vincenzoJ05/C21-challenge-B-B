@@ -18,9 +18,7 @@
                         $tblCottages = getData("SELECT * FROM `cottages`", "fetchAll");
                 
                         //maak hieronder een forach loop om door de array $tblCottages te lopen
-                        foreach($tblCottages as $cottage){
-                            echo $cottage;
-                        ?>
+                        foreach($tblCottages as $cottage){ ?>
                             <li><a class="dropdown-item" href="huisjes.php?cottageID=<?php echo $cottage["cottage_id"];?>"><?php echo $cottage["cottage_name"];?></a></li>
                             <!--gebruik jij niet de naam $cottage in je foreach loop pas de code op regel 22 dan aan! -->
                         <?php
