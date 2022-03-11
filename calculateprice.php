@@ -78,7 +78,7 @@ if(isset($_POST["additions"])){
                         <div class="row">
                           <div class="col-9">
                                 <div class="form-check form-switch">
-                                    <input class="form-check-input" type="form-control" id="<?php echo $addition["addition_id"];?>" value="<?php echo $addition["addition_id"];?>" name="additions[]" <?php if(in_array($addition["addition_id"], $ArrAdditions)){echo "checked"; $selAdditions[$addition["addition_name"]]= $addition["addition_price"];}?>>
+                                    <input class="form-check-input" type="checkbox" role="switch" id="<?php echo $addition["addition_id"];?>" value="<?php echo $addition["addition_id"];?>" name="additions[]" <?php if(in_array($addition["addition_id"], $ArrAdditions)){echo "checked"; $selAdditions[$addition["addition_name"]]= $addition["addition_price"];}?>>
                                     <label class="form-check-label" for="<?php echo $addition["addition_id"];?>"><?php echo $addition["addition_name"];?>  (&euro; <?php echo  FormatNumber($addition["addition_price"]);?>)</label>
                                 </div>
                             </div>
