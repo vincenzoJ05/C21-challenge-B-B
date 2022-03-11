@@ -12,7 +12,7 @@ if(isset($_GET["cottageID"]) && $_GET["cottageID"] > 0){
 $sql = "SELECT * FROM `cottages` WHERE cottage_id = $cottageID ";
 
 $cottage = getData($sql, 'fetch');
-?>
+?>2
 
 <!-- section-1 -->
 <section>
